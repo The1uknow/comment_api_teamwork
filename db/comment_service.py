@@ -55,8 +55,8 @@ def delete_comment_db(comment_id: int):
     db = next(get_db())
 
     comment = db.query(Comment).filter_by(id=comment_id).first()
-    if not comment:
-        return False
-    db.delete(comment)
-    db.commit()
-    return True
+    if not comment:                 # if comment:
+        return False                #     db.delete(comment)
+    db.delete(comment)              #     db.commit()
+    db.commit()                     #     return True
+    return True                     # return False

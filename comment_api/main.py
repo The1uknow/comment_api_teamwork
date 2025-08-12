@@ -79,8 +79,8 @@ def if_error(message="error"):
 @comment_router.delete("/delete_comment")
 async def delete_comment_api(comment_id: int):
     try:
-        deleted = delete_comment_db(comment_id=comment_id)
-        if deleted:
+        delete = delete_comment_db(comment_id=comment_id)
+        if delete:
             return if_work({"message": "комментарий удален"})
         return if_error("комментарий не найден")
     except Exception:
