@@ -58,26 +58,14 @@ async def create_comment_api(comment: CommentCreate):
 
 # тут пишет андрей
 @comment_router.get("/get_comments_by_user")
-async def get_comments_by_user_api(user_id: int):
-    try:
-        comments = get_comments_by_user_db(user_id=user_id)
-        if comments:
-            return if_work(comments)
-        return if_error("Комментарии пользователя не найдены")
-    except Exception:
-        return if_error("Ошибка при получении комментариев пользователя")
+
+
+
 
 
 
 @comment_router.get("/get_comments_by_post")
-async def get_comments_by_post_api(post_id: int):
-    try:
-        comments = get_comments_by_post_db(post_id=post_id)
-        if comments:
-            return if_work(comments)
-        return if_error("Комментарии к посту не найдены")
-    except Exception:
-        return if_error("Ошибка при получении комментариев к посту")
+
 
 
 
