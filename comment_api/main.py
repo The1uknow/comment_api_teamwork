@@ -68,9 +68,6 @@ async def get_comments_by_user_api(user_id: int):
         return if_error("Ошибка при получении комментариев пользователя")
 
 
-
-
-
 @comment_router.get("/get_comments_by_post")
 async def get_comments_by_post_api(post_id: int):
     try:
@@ -80,8 +77,6 @@ async def get_comments_by_post_api(post_id: int):
         return if_error("Комментарии к посту не найдены")
     except Exception:
         return if_error("Ошибка при получении комментариев к посту")
-
-
 
 
 
@@ -95,6 +90,8 @@ async def update_comment_api(comment_id: int, new_text: str):
         return if_error("комментарий не найден")
     except Exception:
         return if_error("не удалось обновить комментарий")
+
+
 
 # тут пишет мухсин
 @comment_router.delete("/delete_comment")
