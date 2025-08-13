@@ -56,11 +56,6 @@ async def create_comment_api(comment: CommentCreate):
 
 
 
-
-
-
-
-
 # тут пишет андрей
 @comment_router.get("/get_comments_by_user")
 
