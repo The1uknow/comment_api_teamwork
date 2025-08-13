@@ -41,7 +41,18 @@ def if_error(message="error"):
 
 # тут пишет максим
 @comment_router.post("/create_comment")
-
+async def create_comment_api(comment: CommentCreate):
+    try:
+        create = create_comment_db(
+            user_id=comment.user_id,
+            post_id=comment.post_id,
+            text=comment.text
+        )
+        if create:
+            return if_work({"message": "комментарий создан"})
+        return if_error("не удалось создать комментарий")
+    except Exception:
+        return if_error("ошибка при создании комментария")
 
 
 
