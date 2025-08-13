@@ -67,13 +67,14 @@ def if_error(message="error"):
 
 # тут пишет сардор
 @comment_router.put("/update_comment")
-
-
-
-
-
-
-
+async def update_comment_api(comment_id: int, new_text: str):
+    try:
+        updated = update_comment_db(comment_id=comment_id, new_text=new_text)
+        if updated:
+            return if_work({"message": "комментарий обновлен"})
+        return if_error("комментарий не найден")
+    except Exception:
+        return if_error("не удалось обновить комментарий")
 
 # тут пишет мухсин
 @comment_router.delete("/delete_comment")
